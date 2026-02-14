@@ -37,28 +37,32 @@
         }
         .links {
             display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            width: 100%;
-            max-width: 400px;
+            gap: 1.25rem;
         }
         a {
-            color: #ffffff;
+            color: rgba(255, 255, 255, 0.85);
             text-decoration: none;
-            padding: 1.5rem;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 12px;
+            border-radius: 20px;
             transition: all 0.3s;
-            font-size: 1.2rem;
-            text-align: center;
         }
         a:hover {
+            color: #ffffff;
             background: rgba(255, 255, 255, 0.2);
             border-color: rgba(255, 255, 255, 0.4);
             transform: translateY(-2px);
+        }
+        a svg {
+            width: 40px;
+            height: 40px;
         }
     </style>
 </head>
@@ -69,9 +73,15 @@
     
     <div class="container">
         <div class="links">
-            <a href="https://books.cooody.com">books</a>
-            <a href="https://audiobooks.cooody.com">audiobooks</a>
-            <a href="https://shelfmark.cooody.com">get books</a>
+            <a href="https://books.cooody.com">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1l0 -14" /><path d="M9 5a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1l0 -14" /><path d="M5 8h4" /><path d="M9 16h4" /><path d="M13.803 4.56l2.184 -.53c.562 -.135 1.133 .19 1.282 .732l3.695 13.418a1.02 1.02 0 0 1 -.634 1.219l-.133 .041l-2.184 .53c-.562 .135 -1.133 -.19 -1.282 -.732l-3.695 -13.418a1.02 1.02 0 0 1 .634 -1.219l.133 -.041" /><path d="M14 9l4 -1" /><path d="M16 16l3.923 -.98" /></svg>
+            </a>
+            <a href="https://audiobooks.cooody.com">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10" /><path d="M3 17l4 -3h10l4 3" /><path d="M7 9.5a.5 .5 0 1 0 1 0a.5 .5 0 1 0 -1 0" fill="currentColor" /><path d="M16 9.5a.5 .5 0 1 0 1 0a.5 .5 0 1 0 -1 0" fill="currentColor" /></svg>
+            </a>
+            <a href="https://shelfmark.cooody.com">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h-6a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12v5" /><path d="M13 16h-7a2 2 0 0 0 -2 2" /><path d="M15 19l3 3l3 -3" /><path d="M18 22v-9" /></svg>
+            </a>
         </div>
     </div>
 </body>
