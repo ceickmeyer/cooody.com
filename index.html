@@ -5,82 +5,164 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cooody</title>
     <style>
+        :root {
+            --nord0: #2E3440;
+            --nord1: #3B4252;
+            --nord2: #434C5E;
+            --nord3: #4C566A;
+            --nord4: #D8DEE9;
+            --nord6: #ECEFF4;
+            --nord8: #88C0D0;
+            --nord9: #81A1C1;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            overflow: hidden;
-            height: 100vh;
-        }
-        #bg-video {
-            position: fixed;
-            top: 0;
-            left: 0;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: -1;
-            object-fit: cover;
-        }
-        .container {
-            position: relative;
-            z-index: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--nord0);
             min-height: 100vh;
-            padding: 2rem;
-        }
-        .links {
-            display: flex;
-            gap: 1.25rem;
-        }
-        a {
-            color: rgba(255, 255, 255, 0.85);
-            text-decoration: none;
-            width: 80px;
-            height: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            transition: all 0.3s;
         }
-        a:hover {
-            color: #ffffff;
-            background: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.4);
-            transform: translateY(-2px);
+
+        .app {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
         }
-        a svg {
-            width: 40px;
-            height: 40px;
+
+        .group {
+            display: flex;
+            gap: 12px;
+        }
+
+        .group + .group {
+            margin-top: 28px;
+        }
+
+        a.card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 110px;
+            height: 120px;
+            background: var(--nord1);
+            border: 1px solid var(--nord3);
+            border-radius: 14px;
+            text-decoration: none;
+            color: var(--nord4);
+            transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+        }
+
+        a.card:hover {
+            background: var(--nord2);
+            border-color: var(--nord8);
+            color: var(--nord6);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+        }
+
+        .card-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-icon svg {
+            width: 36px;
+            height: 36px;
+        }
+
+        .card-icon .img-invert {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            filter: invert(0.82);
+            transition: filter 0.2s ease;
+        }
+
+        a.card:hover .card-icon .img-invert {
+            filter: invert(1);
+        }
+
+        .card-icon .img-color {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            opacity: 0.85;
+            transition: opacity 0.2s ease;
+        }
+
+        a.card:hover .card-icon .img-color {
+            opacity: 1;
+        }
+
+        .card-label {
+            font-size: 10.5px;
+            font-weight: 600;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+            color: var(--nord9);
+            transition: color 0.2s ease;
+        }
+
+        a.card:hover .card-label {
+            color: var(--nord8);
+        }
+
+        a.card-wide .card-icon .img-invert {
+            width: 80px;
+            height: auto;
+            max-height: 24px;
         }
     </style>
 </head>
 <body>
-    <video id="bg-video" autoplay loop muted playsinline>
-        <source src="dithered.mp4" type="video/mp4">
-    </video>
-    
-    <div class="container">
-        <div class="links">
-            <a href="https://books.cooody.com">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1l0 -14" /><path d="M9 5a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1l0 -14" /><path d="M5 8h4" /><path d="M9 16h4" /><path d="M13.803 4.56l2.184 -.53c.562 -.135 1.133 .19 1.282 .732l3.695 13.418a1.02 1.02 0 0 1 -.634 1.219l-.133 .041l-2.184 .53c-.562 .135 -1.133 -.19 -1.282 -.732l-3.695 -13.418a1.02 1.02 0 0 1 .634 -1.219l.133 -.041" /><path d="M14 9l4 -1" /><path d="M16 16l3.923 -.98" /></svg>
+    <div class="app">
+        <div class="group">
+            <a href="https://books.cooody.com" class="card">
+                <div class="card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 5a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1l0 -14" /><path d="M9 5a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1l0 -14" /><path d="M5 8h4" /><path d="M9 16h4" /><path d="M13.803 4.56l2.184 -.53c.562 -.135 1.133 .19 1.282 .732l3.695 13.418a1.02 1.02 0 0 1 -.634 1.219l-.133 .041l-2.184 .53c-.562 .135 -1.133 -.19 -1.282 -.732l-3.695 -13.418a1.02 1.02 0 0 1 .634 -1.219l.133 -.041" /><path d="M14 9l4 -1" /><path d="M16 16l3.923 -.98" /></svg>
+                </div>
+                <span class="card-label">Books</span>
             </a>
-            <a href="https://audiobooks.cooody.com">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10" /><path d="M3 17l4 -3h10l4 3" /><path d="M7 9.5a.5 .5 0 1 0 1 0a.5 .5 0 1 0 -1 0" fill="currentColor" /><path d="M16 9.5a.5 .5 0 1 0 1 0a.5 .5 0 1 0 -1 0" fill="currentColor" /></svg>
+
+            <a href="https://audiobooks.cooody.com" class="card">
+                <div class="card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10" /><path d="M3 17l4 -3h10l4 3" /><path d="M7 9.5a.5 .5 0 1 0 1 0a.5 .5 0 1 0 -1 0" fill="currentColor" /><path d="M16 9.5a.5 .5 0 1 0 1 0a.5 .5 0 1 0 -1 0" fill="currentColor" /></svg>
+                </div>
+                <span class="card-label">Audiobooks</span>
             </a>
-            <a href="https://shelfmark.cooody.com">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h-6a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12v5" /><path d="M13 16h-7a2 2 0 0 0 -2 2" /><path d="M15 19l3 3l3 -3" /><path d="M18 22v-9" /></svg>
+
+            <a href="https://shelfmark.cooody.com" class="card">
+                <div class="card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 20h-6a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12v5" /><path d="M13 16h-7a2 2 0 0 0 -2 2" /><path d="M15 19l3 3l3 -3" /><path d="M18 22v-9" /></svg>
+                </div>
+                <span class="card-label">Shelfmark</span>
+            </a>
+        </div>
+
+        <div class="group">
+            <a href="https://tutoring.cooody.com" class="card">
+                <div class="card-icon">
+                    <img src="notebook.svg" alt="notebook" class="img-color">
+                </div>
+                <span class="card-label">Tutoring</span>
+            </a>
+
+            <a href="https://jeopardy.coooody.com" class="card card-wide">
+                <div class="card-icon">
+                    <img src="Jeopardy!_logo.svg" alt="Jeopardy!" class="img-invert">
+                </div>
             </a>
         </div>
     </div>
